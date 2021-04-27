@@ -1,0 +1,12 @@
+###
+GET http://localhost:3000
+
+###
+POST http://localhost:3000/usuario/cadastrar
+Content-Type: application/json
+
+{
+    "nome":"Alice",
+    "cpf":"224.414.180-25",
+    "sexo":"FEMININO"
+}

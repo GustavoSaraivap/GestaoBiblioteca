@@ -1,0 +1,15 @@
+COMANDOS ESSENCIAIS DO PROJETO
+
+	npm init -y
+
+	tsc --init
+
+	npm install @types/express -D
+
+	ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts
+
+MONGOOSE
+	
+	npm install mongoose
+
+	npm install @types/mongoose -D
