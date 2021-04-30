@@ -3,9 +3,10 @@ POST http://localhost:3000/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome":"Alice",
+    "nome":"Felipe",
     "cpf":"224.414.180-25",
-    "sexo":"FEMININO"
+    "sexo":"FEMININO",
+    "senha":"123123"
 }
 
 ###
@@ -15,15 +16,36 @@ GET http://localhost:3000/usuario/listar
 GET http://localhost:3000/usuario/buscar/6089dcd465ecbb21bc897d54
 
 ###
-GET http://localhost:3000/usuario/remover/6089dcd465ecbb21bc897d54
-
+GET http://localhost:3000/usuario/remover/608c2a768124eb122402a366
 ###
 POST http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
 {
-    "_id":"608beff895fde72df44e6c78",
+    "_id":"608c2987fb4da726b4dc43ef",
     "nome":"Alice",
     "cpf":"516.868.520-02",
-    "sexo":"FEMININO"
+    "sexo":"FEMININO",
+    "senha":"321"
 }
+
+###
+POST http://localhost:3000/usuario/login
+Content-Type: application/json
+
+{
+    "cpf":"516.868.520-02",
+    "senha":"321"
+}
+
+###
+POST http://localhost:3000/usuario/login
+Content-Type: application/json
+
+{
+    "cpf":"224.414.180-25",
+    "senha":"123123"
+}
+
+###
+GET http://localhost:3000/usuario/logout

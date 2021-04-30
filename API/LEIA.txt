@@ -14,3 +14,15 @@ MONGOOSE
 	npm install mongoose
 
 	npm install @types/mongoose -D
+
+BCRYPT
+
+	npm install bcrypt
+
+	npm install @types/bcrypt -D
+
+JWT
+
+	npm install jsonwebtoken
+
+	npm install @types/jsonwebtoken -D

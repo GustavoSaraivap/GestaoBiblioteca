@@ -14,6 +14,10 @@ const usuarioSchema = new Schema(
         type: String,
         enum: ["MASCULINO", "FEMININO", "OUTROS"],
         uppercase: true
+    },
+    hash:{
+        type:String,
+        required:[true, "O campo Senha do usuário e obrigatório!"]
     }
 },{
     timestamps: true

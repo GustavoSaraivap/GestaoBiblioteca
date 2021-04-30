@@ -5,6 +5,7 @@ import {mongoose} from "./config/database";
 const app = express();
 const db = mongoose;
 
+globalThis.ENVIRONMENT = "";
 app.use(express.json());
 
 app.use(router);
