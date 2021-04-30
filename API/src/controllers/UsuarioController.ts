@@ -39,6 +39,29 @@ class UsuarioController{
             response.status(400).json(error);
         }
     }
+
+    async remover(request: Request, response: Response){
+        try{
+            const{id} = request.params;
+            const user:any = await UsuarioSchema.findOne({_id : id});
+            await UsuarioSchema.deleteOne(user);
+            response.status(200).json({ msg:"O usuário foi excluido!"});
+        } catch(error){
+            response.status(400).json(error);
+        }
+    }
+
+    async alterar(request: Request, response: Response){
+        try{
+            const user = request.body;
+            const userid = user._id
+            const alterarUser:any = await  UsuarioSchema.findOne({_id : userid});
+            const newUser = await UsuarioSchema.updateOne(alterarUser, user);
+            response.status(200).json(newUser);
+        } catch(error){
+            response.status(400).json(error);
+        }
+    }
 }
 
 export {UsuarioController};

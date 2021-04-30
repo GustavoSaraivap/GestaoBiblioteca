@@ -1,7 +1,6 @@
 {
   "name": "GestaoBiblioteca",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,10 +19,11 @@
   "homepage": "https://github.com/GustavoSaraivap/GestaoBiblioteca#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.12.5"
+    "mongoose": "^5.12.7"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/mongoose": "^5.10.5"
-  }
+  },
+  "description": ""
 }

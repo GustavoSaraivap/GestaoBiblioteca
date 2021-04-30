@@ -4,9 +4,10 @@ COMANDOS ESSENCIAIS DO PROJETO
 
 	tsc --init
 
+	npm install express
+
 	npm install @types/express -D
 
-	ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts
 
 MONGOOSE
 	
