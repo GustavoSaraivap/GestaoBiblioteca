@@ -1,0 +1,51 @@
+
+POST http://localhost:3000/funcionario/cadastrar
+Content-Type: application/json
+
+{
+    "nome":"Tomas",
+    "cpf":"135.410.690-31",
+    "sexo":"MASCULINO",
+    "senha":"321"
+}
+
+###
+GET http://localhost:3000/funcionario/listar
+
+###
+GET http://localhost:3000/funcionario/buscar/60907504d31bfa22f4f525f3
+
+###
+GET http://localhost:3000/funcionario/remover/60907504d31bfa22f4f525f3
+###
+POST http://localhost:3000/funcionario/alterar
+Content-Type: application/json
+
+{
+    "_id":"6090735ed31bfa22f4f525f2",
+    "nome":"Alice",
+    "cpf":"583.122.400-71",
+    "sexo":"FEMININO",
+    "senha":"321"
+}
+
+###
+POST http://localhost:3000/funcionario/login
+Content-Type: application/json
+
+{
+    "cpf":"583.122.400-71",
+    "senha":"321"
+}
+
+###
+POST http://localhost:3000/funcionario/login
+Content-Type: application/json
+
+{
+    "cpf":"224.414.180-25",
+    "senha":"123123"
+}
+
+###
+GET http://localhost:3000/funcionario/logout
