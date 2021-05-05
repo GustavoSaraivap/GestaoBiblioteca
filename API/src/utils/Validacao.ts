@@ -1,3 +1,4 @@
+
 export default class Validacao{
     static validarCPF(cpf: string){
         cpf = cpf.replace(".", "");
@@ -61,4 +62,6 @@ export default class Validacao{
         }
         return false;
     }
+
+    
 }

@@ -1,6 +1,6 @@
 import {model, Schema} from "mongoose";
 
-const usuarioSchema = new Schema(
+const LivroSchema = new Schema(
 {
     titulo:{
         type:String,
@@ -18,4 +18,4 @@ const usuarioSchema = new Schema(
     timestamps: true
 });
 
-export default model("usuarios", usuarioSchema);
+export default model("livros", LivroSchema);

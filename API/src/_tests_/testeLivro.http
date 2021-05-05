@@ -1,0 +1,38 @@
+
+###Cadastrar livro
+
+POST http://localhost:3000/livro/cadastrar
+Content-Type: application/json
+
+[   
+{
+    "titulo":"Mulheres que correm com os lobos",
+    "editora":"Rocco; 1ª edição",
+    "autor":"Clarissa Pinkola Estés"
+},
+{
+    "titulo":"A garota do lago",
+    "editora":"Faro Editorial; 1ª edição",
+    "autor":"Charlie Donlea"
+}
+]
+
+###Listar livro
+GET http://localhost:3000/livro/listar
+
+###Buscar livro por titulo
+GET http://localhost:3000/livro/buscar/A garota do lago
+
+###Remover livro
+GET http://localhost:3000/livro/remover/6092fb903f8f99257c0542b4
+
+###Alterar livro
+POST http://localhost:3000/livro/alterar
+Content-Type: application/json
+
+{
+    "_id":"6092fb903f8f99257c0542b3",
+    "titulo":"Mulheres que correm com os lobos",
+    "editora":"Rocco; 1ª edição",
+    "autor":"Clarissa Pinkola Estés"
+}
