@@ -14,6 +14,8 @@ router.get("/usuario/remover/:id", usuarioController.remover);
 router.post("/usuario/alterar", usuarioController.alterar);
 router.post("/usuario/login", usuarioController.loginUsuario);
 router.get("/usuario/logout", usuarioController.logoutUsuario);
+router.post("/usuario/emprestar", usuarioController.emprestarLivro);
+router.post("/usuario/devolver", usuarioController.devolverLivro);
 
 //Funcionario
 router.get("/funcionario/listar", funcionarioController.listar);

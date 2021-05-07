@@ -1,7 +1,11 @@
 import {model, Schema} from "mongoose";
 
-const usuarioSchema = new Schema(
+const livrosSchema = new Schema(
 {
+    codigo:{
+        type:Number,
+        required:[true, "O campo CODIGO do livro é obrigatório!"]
+    },
     titulo:{
         type:String,
         required:[true, "O campo TÍTULO do livro e obrigatório!"]
@@ -18,4 +22,4 @@ const usuarioSchema = new Schema(
     timestamps: true
 });
 
-export default model("usuarios", usuarioSchema);
+export default model("livros", livrosSchema);

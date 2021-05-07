@@ -2,7 +2,7 @@ import {Request, Response } from "express";
 import FuncionarioSchema from "../models/FuncionarioSchema";
 import Validacao from "../utils/Validacao";
 import bcrypt from "bcrypt";
-import {Auth} from "./auth";
+import {Auth} from "./Auth";
 
 
 const auth = new Auth();

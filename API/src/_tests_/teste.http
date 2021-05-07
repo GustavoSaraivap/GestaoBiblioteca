@@ -49,3 +49,46 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/usuario/logout
+
+###
+POST http://localhost:3000/usuario/emprestar
+Content-Type: application/json
+
+{
+    "codigo":"54321",
+    "codigoLivro":"12345",
+    "cpfCliente":"224.414.180-25",
+    "mesEmprestimo":"5",
+    "mesDevolucao":"6",
+    "pagar":"sim",
+    "livroS":[
+        {
+            "codigo":"12345",
+            "titulo":"Titulo do Livro",
+            "editora":"Editora do Livro",
+            "autor":"Autor do Livro"
+        }
+    ]
+}
+
+###
+
+POST http://localhost:3000/usuario/devolver
+Content-Type: application/json
+
+{
+    "codigo":"54321",
+    "codigoLivro":"12345",
+    "cpfCliente":"224.414.180-25",
+    "mesEmprestimo":"5",
+    "mesDevolucao":"6",
+    "pagar":"sim",
+    "livroS":[
+        {
+            "codigo":"12345",
+            "titulo":"Titulo do Livro",
+            "editora":"Editora do Livro",
+            "autor":"Autor do Livro"
+        }
+    ]
+}
