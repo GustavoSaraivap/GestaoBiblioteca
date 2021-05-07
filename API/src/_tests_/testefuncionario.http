@@ -1,4 +1,4 @@
-
+###Cadastrar funcionario
 POST http://localhost:3000/funcionario/cadastrar
 Content-Type: application/json
 
@@ -9,15 +9,16 @@ Content-Type: application/json
     "senha":"321"
 }
 
-###
+###Listar funcionario
 GET http://localhost:3000/funcionario/listar
 
-###
+###Buscar funcionario por id
 GET http://localhost:3000/funcionario/buscar/60907504d31bfa22f4f525f3
 
-###
+###Remover funcionario
 GET http://localhost:3000/funcionario/remover/60907504d31bfa22f4f525f3
-###
+
+###Alterar funcionario
 POST http://localhost:3000/funcionario/alterar
 Content-Type: application/json
 
@@ -29,7 +30,7 @@ Content-Type: application/json
     "senha":"321"
 }
 
-###
+###Login funcionario
 POST http://localhost:3000/funcionario/login
 Content-Type: application/json
 
@@ -38,14 +39,5 @@ Content-Type: application/json
     "senha":"321"
 }
 
-###
-POST http://localhost:3000/funcionario/login
-Content-Type: application/json
-
-{
-    "cpf":"224.414.180-25",
-    "senha":"123123"
-}
-
-###
+###Logout funcionario
 GET http://localhost:3000/funcionario/logout

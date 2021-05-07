@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import FuncionarioSchema from "../models/FuncionarioSchema";
 
+
 class Auth{
     async login(request: Request, response: Response){
         try {
@@ -50,6 +51,65 @@ class Auth{
             response.status(400).json(error);
         }
     }
+
+    async autenticacaoFuncionario(){
+        try {
+            if(globalThis.ENVIRONMENT == ""){
+                return null;
+            }else{
+                const token : any= jwt.verify(globalThis.ENVIRONMENT, "token");
+                const cpf = token.cpf;
+                const auth = await UsuarioSchema.findOne({cpf : cpf});
+                if(auth != null){
+                    return null;
+                }
+                const auth2 = await FuncionarioSchema.findOne({cpf : cpf});
+                if(auth2 !=null){
+                    return auth2;
+                }
+                return null;
+            }
+        } catch (error) {
+            return null;
+        }
+    }
+
+    async autenticacaoUsuario(){
+        try {
+            if(globalThis.ENVIRONMENT == ""){
+                return null;
+            }else{
+                const token : any= jwt.verify(globalThis.ENVIRONMENT, "token");
+                const cpf = token.cpf;
+                const auth2 = await FuncionarioSchema.findOne({cpf : cpf});
+                if(auth2 !=null){
+                    return null;
+                }
+                const auth = await UsuarioSchema.findOne({cpf : cpf});
+                if(auth != null){
+                    return auth;
+                }
+                
+                return null;
+            }
+        } catch (error) {
+            return null;
+        }
+    }
+
+    async autenticacaoLogado(){
+        try {
+            if(globalThis.ENVIRONMENT == ""){
+                return null;
+            }else{
+                const obj = {};
+                return obj;
+            }
+        } catch (error) {
+            return null;
+        }
+    }
+   
 }
 
 export{Auth};

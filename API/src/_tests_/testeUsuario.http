@@ -1,4 +1,4 @@
-
+###Cadastrar usuario
 POST http://localhost:3000/usuario/cadastrar
 Content-Type: application/json
 
@@ -9,15 +9,16 @@ Content-Type: application/json
     "senha":"123123"
 }
 
-###
+###Listar usuario
 GET http://localhost:3000/usuario/listar
 
-###
+###Buscar usuario por id
 GET http://localhost:3000/usuario/buscar/6089dcd465ecbb21bc897d54
 
-###
+###Remover usuario
 GET http://localhost:3000/usuario/remover/608c2a768124eb122402a366
-###
+
+###Alterar usuario
 POST http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
@@ -29,16 +30,8 @@ Content-Type: application/json
     "senha":"321"
 }
 
-###
-POST http://localhost:3000/usuario/login
-Content-Type: application/json
 
-{
-    "cpf":"516.868.520-02",
-    "senha":"321"
-}
-
-###
+###Login usuario
 POST http://localhost:3000/usuario/login
 Content-Type: application/json
 
@@ -47,7 +40,7 @@ Content-Type: application/json
     "senha":"123123"
 }
 
-###
+###Logout usuario
 GET http://localhost:3000/usuario/logout
 
 ###

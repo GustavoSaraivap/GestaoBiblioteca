@@ -27,6 +27,11 @@ class FuncionarioController{
        
     }
 
+    async buscarPorCpf(cpf: String){
+        const funcionario = await FuncionarioSchema.findOne({cpf : cpf});
+        return funcionario;
+    }
+
     async cadastrar(request: Request, response: Response){
         try{
             const json = request.body;
