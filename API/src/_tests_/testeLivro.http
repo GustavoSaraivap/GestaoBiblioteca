@@ -5,17 +5,32 @@ POST http://localhost:3000/livro/cadastrar
 Content-Type: application/json
 
 [   
-{
-    "titulo":"Mulheres que correm com os lobos",
-    "editora":"Rocco; 1ª edição",
-    "autor":"Clarissa Pinkola Estés"
-},
-{
-    "titulo":"A garota do lago",
-    "editora":"Faro Editorial; 1ª edição",
-    "autor":"Charlie Donlea"
-}
+    {
+        "titulo":"Mulheres que correm com os lobos",
+        "editora":"Rocco",
+        "autor":"Clarissa Pinkola Estés",
+        "emprestado":false
+    },
+    {
+        "titulo":"A garota do lago",
+        "editora":"Faro Editorial",
+        "autor":"Charlie Donlea",
+        "emprestado":false
+    },
+    {
+        "titulo":"A Realidade de Madhu",
+        "editora":"Novo Século",
+        "autor":"Melissa Tobias",
+        "emprestado":false
+    },
+    {
+        "titulo":"Uma terra prometida",
+        "editora":"Companhia das Letras",
+        "autor":"Barack Obama",
+        "emprestado":false
+    }
 ]
+
 
 ###Listar livro
 GET http://localhost:3000/livro/listar
@@ -24,15 +39,14 @@ GET http://localhost:3000/livro/listar
 GET http://localhost:3000/livro/buscar/A garota do lago
 
 ###Remover livro
-GET http://localhost:3000/livro/remover/6092fb903f8f99257c0542b4
-
+GET http://localhost:3000/livro/remover/6094eb05c3b7202a6041db16
 ###Alterar livro
 POST http://localhost:3000/livro/alterar
 Content-Type: application/json
 
 {
-    "_id":"6092fb903f8f99257c0542b3",
+    "_id":"60950c4010e9e61eb0c70caa",
     "titulo":"Mulheres que correm com os lobos",
-    "editora":"Rocco; 1ª edição",
+    "editora":"Rocco",
     "autor":"Clarissa Pinkola Estés"
 }

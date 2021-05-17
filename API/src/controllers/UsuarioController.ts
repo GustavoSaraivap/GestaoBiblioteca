@@ -1,7 +1,5 @@
 import {Request, Response } from "express";
 import UsuarioSchema from "../models/UsuarioSchema";
-import EmprestimoSchema from "../models/EmprestimoSchema";
-import LivroSchema from "../models/LivroSchema";
 import Validacao from "../utils/Validacao";
 import bcrypt from "bcrypt";
 import {Auth} from "./Auth"
@@ -12,6 +10,7 @@ class UsuarioController{
     async listar(request: Request, response: Response){
         const usuarios = await UsuarioSchema.find();
         response.status(200).json(usuarios);
+        console.log(usuarios);
     }
 
     async buscarPorId(request: Request, response: Response){
@@ -67,7 +66,7 @@ class UsuarioController{
             const user = request.body;
             const userid = user._id;
             const cpf = user.cpf;
-            const senha = user.hash;
+            const senha = user.senha;
             if(Validacao.validarCPF(cpf) == true){
                 user.hash = await bcrypt.hash(senha, 10);
                 const alterarUser:any = await  UsuarioSchema.findOne({_id : userid});
@@ -95,85 +94,7 @@ class UsuarioController{
             response.status(400).json(error);
         }
     }
-    
-    async emprestarLivro(request: Request, response: Response){
-        try{
-            const emp = request.body;
-            const codLivro = emp.codigoLivro;
-            const cpfc = emp.cpfCliente;
-            const mesEmp = emp.mesEmprestimo;
-            const mesDev = emp.mesDevolucao;
-            const pagarEmp = emp.pagar;
 
-            if(await LivroSchema.findOne({codigo : codLivro})){
-                if(mesEmp > mesDev){
-                    response.json({ msg:"Multa pendente"});
-                    if(pagarEmp == "sim"){
-                        if(await UsuarioSchema.findOne({cpfCliente : cpfc})){
-                            const newemp = await EmprestimoSchema.create(emp);
-                            response.status(201).json(newemp);
-                            response.status(201).json({ msg:"Livro Emprestado com sucesso"});
-                        } else {
-                            response.status(400).json({ msg:"Emprestimo não foi realizado, cpf não encontrado!"});
-                        }
-                    } else {
-                        response.status(400).json({ msg:"Emprestimo não pode ser realizado pois tem multas para pagar!"});
-                    }
-                } else {
-                    if(await UsuarioSchema.findOne({cpfCliente : cpfc})){
-                        const newemp = await EmprestimoSchema.create(emp);
-                        response.status(201).json(newemp);
-                        response.status(201).json({ msg:"Livro Emprestado com sucesso"});
-                    } else {
-                        response.status(400).json({ msg:"Emprestimo não foi realizado, cpf não encontrado!"});
-                    }
-                }
-            }
-
-
-        } catch(error){
-            response.status(400).json(error);
-        }
-    }
-    async devolverLivro(request: Request, response: Response){
-        try{
-
-            const emp = request.body;
-            const codLivro = emp.codigoLivro;
-            const cpfc = emp.cpfCliente;
-            const mesEmp = emp.mesEmprestimo;
-            const mesDev = emp.mesDevolucao;
-            const pagarEmp = emp.pagar;
-
-            if(await LivroSchema.findOne({codigo : codLivro})){
-                if(mesEmp > mesDev){
-                    response.json({ msg:"Multa pendente"});
-                    if(pagarEmp == "sim"){
-                        if(await UsuarioSchema.findOne({cpfCliente : cpfc})){
-                            const newemp = await EmprestimoSchema.deleteOne(emp);
-                            response.status(201).json(newemp);
-                            response.status(201).json({ msg:"Livro devolvido com sucesso"});
-                        } else {
-                            response.status(400).json({ msg:"Devolução não foi realizado, cpf não encontrado!"});
-                        }
-                    } else {
-                        response.status(400).json({ msg:"Devolucao não pode ser realizado pois tem multas para pagar!"});
-                    }
-                } else {
-                    if(await UsuarioSchema.findOne({cpfCliente : cpfc})){
-                        response.status(201).json({ msg:"Livro devolvido com sucesso"});
-                    }
-                    else{
-                        response.status(400).json({ msg:"Devolução não foi realizada, cpf não encontrado!"});
-                    }
-                }
-            }
-
-
-        } catch(error){
-            response.status(400).json(error);
-        }
-    }
     
 }
 

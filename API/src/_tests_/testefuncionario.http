@@ -13,21 +13,21 @@ Content-Type: application/json
 GET http://localhost:3000/funcionario/listar
 
 ###Buscar funcionario por id
-GET http://localhost:3000/funcionario/buscar/60907504d31bfa22f4f525f3
+GET http://localhost:3000/funcionario/buscar/60950c1a10e9e61eb0c70ca8
 
 ###Remover funcionario
-GET http://localhost:3000/funcionario/remover/60907504d31bfa22f4f525f3
+GET http://localhost:3000/funcionario/remover/60950c1a10e9e61eb0c70ca8
 
 ###Alterar funcionario
 POST http://localhost:3000/funcionario/alterar
 Content-Type: application/json
 
 {
-    "_id":"6090735ed31bfa22f4f525f2",
+    "_id":"609513875448ff28c83c324b",
     "nome":"Alice",
-    "cpf":"583.122.400-71",
+    "cpf":"135.410.690-31",
     "sexo":"FEMININO",
-    "senha":"321"
+    "hash":"321"
 }
 
 ###Login funcionario
@@ -35,7 +35,7 @@ POST http://localhost:3000/funcionario/login
 Content-Type: application/json
 
 {
-    "cpf":"583.122.400-71",
+    "cpf":"135.410.690-31",
     "senha":"321"
 }
 

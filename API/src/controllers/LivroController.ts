@@ -9,11 +9,10 @@ class LivroController{
         const livros = await LivroSchema.find();
         response.status(200).json(livros);
     }
-
     async buscarPorTitulo(request: Request, response: Response){
         const{title} = request.params;
         try {
-            const livro = await LivroSchema.findOne({titulo : title});
+            const livro :any= await LivroSchema.findOne({titulo : title});
             if(livro == null){
                 response.status(404).json({ msg:"O livro não existe!"});
             }
@@ -60,9 +59,12 @@ class LivroController{
             const obj = await auth.autenticacaoFuncionario();
             if(obj != null){
                 const livro = request.body;
-                const livroid = livro._id;
-                const alterarLivro:any = await  LivroSchema.findOne({_id : livroid});
+                livro.emprestado = false;
+                const livroid = livro._id
+                const alterarLivro:any = await LivroSchema.findById(livroid);
+                console.log(alterarLivro);
                 const newLivro = await LivroSchema.updateOne(alterarLivro, livro);
+                console.log(newLivro);
                 response.status(200).json(newLivro);
             }else{
                 response.status(400).json({message:"Você não tem permissão!"});

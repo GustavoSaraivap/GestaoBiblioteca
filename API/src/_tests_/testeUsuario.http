@@ -3,27 +3,28 @@ POST http://localhost:3000/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome":"Felipe",
-    "cpf":"224.414.180-25",
-    "sexo":"FEMININO",
-    "senha":"123123"
+    "nome":"Fernando",
+    "cpf":"466.488.450-82",
+    "sexo":"MASCULINO",
+    "senha":"123123",
+    "emprestimos":[]
 }
 
 ###Listar usuario
 GET http://localhost:3000/usuario/listar
 
 ###Buscar usuario por id
-GET http://localhost:3000/usuario/buscar/6089dcd465ecbb21bc897d54
+GET http://localhost:3000/usuario/buscar/60950be810e9e61eb0c70ca6
 
 ###Remover usuario
-GET http://localhost:3000/usuario/remover/608c2a768124eb122402a366
+GET http://localhost:3000/usuario/remover/60950be810e9e61eb0c70ca6
 
 ###Alterar usuario
 POST http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
 {
-    "_id":"608c2987fb4da726b4dc43ef",
+    "_id":"60a2db1171e57921d46cfd08",
     "nome":"Alice",
     "cpf":"516.868.520-02",
     "sexo":"FEMININO",
@@ -36,52 +37,18 @@ POST http://localhost:3000/usuario/login
 Content-Type: application/json
 
 {
-    "cpf":"224.414.180-25",
+    "cpf":"516.868.520-02",
+    "senha":"321"
+}
+
+###Login usuario
+POST http://localhost:3000/usuario/login
+Content-Type: application/json
+
+{
+    "cpf":"466.488.450-82",
     "senha":"123123"
 }
 
 ###Logout usuario
 GET http://localhost:3000/usuario/logout
-
-###
-POST http://localhost:3000/usuario/emprestar
-Content-Type: application/json
-
-{
-    "codigo":"54321",
-    "codigoLivro":"12345",
-    "cpfCliente":"224.414.180-25",
-    "mesEmprestimo":"5",
-    "mesDevolucao":"6",
-    "pagar":"sim",
-    "livroS":[
-        {
-            "codigo":"12345",
-            "titulo":"Titulo do Livro",
-            "editora":"Editora do Livro",
-            "autor":"Autor do Livro"
-        }
-    ]
-}
-
-###
-
-POST http://localhost:3000/usuario/devolver
-Content-Type: application/json
-
-{
-    "codigo":"54321",
-    "codigoLivro":"12345",
-    "cpfCliente":"224.414.180-25",
-    "mesEmprestimo":"5",
-    "mesDevolucao":"6",
-    "pagar":"sim",
-    "livroS":[
-        {
-            "codigo":"12345",
-            "titulo":"Titulo do Livro",
-            "editora":"Editora do Livro",
-            "autor":"Autor do Livro"
-        }
-    ]
-}
