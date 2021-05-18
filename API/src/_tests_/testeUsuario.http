@@ -24,7 +24,7 @@ POST http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
 {
-    "_id":"60a2db1171e57921d46cfd08",
+    "_id":"60a41aca7af61219c4456d2e",
     "nome":"Alice",
     "cpf":"516.868.520-02",
     "sexo":"FEMININO",

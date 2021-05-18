@@ -26,7 +26,8 @@ Content-Type: application/json
 
 [
     {
-        "titulo":"Mulheres que correm com os lobos"
+        "titulo":"Mulheres que correm com os lobos",
+        "valorMulta": 60
     },
     {
         "titulo":"A Realidade de Madhu"

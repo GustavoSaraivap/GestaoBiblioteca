@@ -47,13 +47,13 @@ class EmprestimoController{
                     if(string.length > 0){
                         const titulo:[any] = [""];
                         for(let i = 0; i < string.length; i++){
-                            titulo[i] = string[i];
-                        }
+                            titulo[i] = string[i].titulo;
+                        } 
                         for(let i = 0; i < string.length; i++){
-                            let livro:any = await LivroSchema.findOne({titulo : titulo[i].titulo});
+                            let livro:any = await LivroSchema.findOne({titulo : titulo[i]});
                             livroid[i] = livro._id;
-                            await LivroSchema.updateMany({emprestado:true, _id:livro._id}, {$set:{emprestado:false}});
                         }
+                        
                         const emprestimoId : [any] = [""];
                         let emprestimoIdAtt : [any] = [""];
                         let validacao = false;
@@ -63,99 +63,135 @@ class EmprestimoController{
                         }
                         const userAux : any= await UsuarioSchema.findById(obj._id);
                         
-                            for(let i = 0; i < emprestimoId.length; i++){
-                                const emprestimoPago : any = await EmprestimoSchema.findById(emprestimoId[i]);
-                                let x = 0
-                                let validaexclui = 0;
-                                if(emprestimoPago != null){
-                                    let idemp : String = emprestimoPago.livro._id;
-                                    for(let j = 0; j < livroid.length; j++){
-                                        let livroidif : String = livroid[j];
-                                        if(`${idemp}` == `${livroidif}`){
-                                            x = x-1;
-                                        }else{
-                                            x = x+1;
-                                        }
-                                        if(x == livroid.length){
-                                            if(emprestimoIdAtt[0] == [""]){
-                                                emprestimoIdAtt[0] = emprestimoPago._id;
-                                            }else{
-                                                emprestimoIdAtt.push(emprestimoPago._id);
-                                            }
-                                        }else{
-                                            if(emprestimoIdExclui[0] == [""]){
-                                                emprestimoIdExclui[0] = emprestimoPago._id;
-                                            }else{
-                                                for(let r = 0; r < emprestimoIdExclui.length; r++){
-                                                    if(emprestimoIdExclui[r] == emprestimoPago._id){
-                                                        validaexclui = 1;
-                                                    }
-                                                }
-                                                if(validaexclui == 0){
-                                                    emprestimoIdExclui.push(emprestimoPago._id);
-                                                }
-                                            }
-                                        }
-                                    }
-                                   
-                                }else{
-                                    validacao = true;
-                                }
-                            
-                            }
-                            let emprestimoIdExcluiFinal:[any] = [""];
-                            let o=0;
-                            for(let i = 0; i < emprestimoIdExclui.length; i++){
-                                for(let r = 0; r < emprestimoIdAtt.length; r++){
-                                    if(emprestimoIdExclui[i] == emprestimoIdAtt[r]){
-                                        o=1;
-                                        
-                                    }
-                                } 
-                                if(o==0){
-                                    if(emprestimoIdExcluiFinal[0] == ''){
-                                        emprestimoIdExcluiFinal[0] = emprestimoIdExclui[i];
+                        for(let i = 0; i < emprestimoId.length; i++){
+                            const emprestimoPago : any = await EmprestimoSchema.findById(emprestimoId[i]);
+                            let x = 0
+                            let validaexclui = 0;
+                            if(emprestimoPago != null){
+                                let idemp : String = emprestimoPago.livro._id;
+                                for(let j = 0; j < livroid.length; j++){
+                                    let livroidif : String = livroid[j];
+                                    if(`${idemp}` == `${livroidif}`){
+                                        x = x-1;
                                     }else{
-                                        emprestimoIdExcluiFinal.push(emprestimoIdExclui[i]);
+                                        x = x+1;
                                     }
+                                    if(x == livroid.length){
+                                        if(emprestimoIdAtt[0] == [""]){
+                                            emprestimoIdAtt[0] = emprestimoPago._id;
+                                        }else{
+                                            emprestimoIdAtt.push(emprestimoPago._id);
+                                        }
+                                    }else{
+                                        if(emprestimoIdExclui[0] == [""]){
+                                            emprestimoIdExclui[0] = emprestimoPago._id;
+                                        }else{
+                                            for(let r = 0; r < emprestimoIdExclui.length; r++){
+                                                if(emprestimoIdExclui[r] == emprestimoPago._id){
+                                                    validaexclui = 1;
+                                                }
+                                            }
+                                            if(validaexclui == 0){
+                                                emprestimoIdExclui.push(emprestimoPago._id);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }else{
+                                validacao = true;
+                            }
+                        
+                        }
+                        let emprestimoIdExcluiFinal:[any] = [""];
+                        let o=0;
+                        for(let i = 0; i < emprestimoIdExclui.length; i++){
+                            for(let r = 0; r < emprestimoIdAtt.length; r++){
+                                if(emprestimoIdExclui[i] == emprestimoIdAtt[r]){
+                                    o=1;
                                     
                                 }
-                                o=0; 
-                            }
-                            userAux.emprestimos = [];
-                            const emprestimosAtt:[any] = [""];
-                            let y = 0;
-                            if(obj.emprestimos.length == livroid.length){
-                                y = 1;
-                            }
-                            if(y == 0){
-                                for(let i = 0; i < emprestimoIdAtt.length; i++){
-                                    emprestimosAtt[i] = await EmprestimoSchema.findById(emprestimoIdAtt[i]);
-                                }
-                                if(emprestimoIdAtt.length > 0){
-                                    for(let i = 0; i < emprestimosAtt.length; i++){
-                                        userAux.emprestimos.push(emprestimosAtt[i]);
-                                    }
+                            } 
+                            if(o==0){
+                                if(emprestimoIdExcluiFinal[0] == ''){
+                                    emprestimoIdExcluiFinal[0] = emprestimoIdExclui[i];
                                 }else{
-                                    userAux.emprestimos = emprestimosAtt;
+                                    emprestimoIdExcluiFinal.push(emprestimoIdExclui[i]);
+                                }
+                                
+                            }
+                            o=0; 
+                        }
+                        userAux.emprestimos = [];
+                        const emprestimosAtt:[any] = [""];
+                        let y = 0;
+                        if(obj.emprestimos.length == livroid.length){
+                            y = 1;
+                        }
+                        if(y == 0){
+                            for(let i = 0; i < emprestimoIdAtt.length; i++){
+                                emprestimosAtt[i] = await EmprestimoSchema.findById(emprestimoIdAtt[i]);
+                            }
+                            if(emprestimoIdAtt.length > 0){
+                                for(let i = 0; i < emprestimosAtt.length; i++){
+                                    userAux.emprestimos.push(emprestimosAtt[i]);
+                                }
+                            }else{
+                                userAux.emprestimos = emprestimosAtt;
+                            }
+                        }
+                        const emprestimosExclui:[any] = [""];
+                        if(emprestimoIdExcluiFinal.length > 0){
+                            for(let i = 0; i < emprestimoIdExcluiFinal.length; i++){
+                                emprestimosExclui[i] = await EmprestimoSchema.findById(emprestimoIdExcluiFinal[i]);
+                            }
+                        }
+                        let valor:any = 0;
+                        for(let i = 0; i < string.length; i++){
+                            if(string[i].valorMulta != undefined){
+                                valor = string[i].valorMulta;
+                            }
+                        }
+                        let control = 0;
+                        let multa = true;
+                        let multaMensagem = "";
+                        let data = new Date(Date.now());
+                        for(let i = 0; i < emprestimosExclui.length; i++){
+                            if(emprestimosExclui[i].dataDevolucao < data){
+                                control++;
+                            }
+                        }
+                        if(control == 0){
+                            multa = false;
+                        }
+                        console.log(valor);
+                        if(multa == true){
+                            if(valor < (control*20)){
+                                multaMensagem = "inferior";
+                            }else{
+                                if(valor > (control*20)){
+                                    multaMensagem = "superior";
+                                }else{
+                                   multaMensagem = "igual";
                                 }
                             }
-                            const emprestimosExclui:[any] = [""];
-                            if(emprestimoIdExcluiFinal.length > 0){
-                                for(let i = 0; i < emprestimoIdExcluiFinal.length; i++){
-                                    emprestimosExclui[i] = await EmprestimoSchema.findById(emprestimoIdExcluiFinal[i]);
-                                }
+                        }
+                        if(multa == false || (multa == true && multaMensagem == "igual")){
+                            //Att banco
+                            for(let i = 0; i < string.length; i++){
+                                let livro:any = await LivroSchema.findOne({titulo : titulo[i]});
+                                await LivroSchema.updateMany({emprestado:true, _id:livro._id}, {$set:{emprestado:false}});
                             }
                             if(emprestimosExclui.length > 0){
                                 for(let i = 0; i < emprestimosExclui.length; i++){
-                                   await EmprestimoSchema.deleteOne(emprestimosExclui[i]);
+                                    await EmprestimoSchema.deleteOne(emprestimosExclui[i]);
                                 }
                             }
-                            
-                            await UsuarioSchema.updateOne(obj, userAux);
-                            
-                            
-                        response.status(200).json({message:"Devolução completa!"});
+                            await UsuarioSchema.updateOne(obj, userAux);    
+                            response.status(200).json({message:"Devolução completa!"});
+                        }else{
+                            response.status(400).json({message:`Valor  ${multaMensagem} a sua multa, sua multa é de:` + control*20});
+                        }
                     }else{ 
                         response.status(400).json({message:"Nenhum titulo inserido!"});
                     }
@@ -215,7 +251,7 @@ class EmprestimoController{
                             for(let i = 0; i < livros.length; i++){
                                 emprestimo[i] = await EmprestimoSchema.create({
                                     "dataEmprestimo": new Date(Date.now()),
-                                    "dataDevolucao": new Date(Date.now()+88888888),
+                                    "dataDevolucao": new Date(Date.now()-88888888),
                                     "livro":livros[i]
                                 });
                             }
