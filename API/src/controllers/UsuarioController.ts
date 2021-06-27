@@ -10,7 +10,6 @@ class UsuarioController{
     async listar(request: Request, response: Response){
         const usuarios = await UsuarioSchema.find();
         response.status(200).json(usuarios);
-        console.log(usuarios);
     }
 
     async buscarPorId(request: Request, response: Response){
