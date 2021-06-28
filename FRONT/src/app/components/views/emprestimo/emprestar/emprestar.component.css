@@ -1,0 +1,28 @@
+table {
+    margin-top: 16px;
+    width: 100%;
+}
+
+mat-icon{
+    margin-right: 8px;
+}
+
+.botaoemprestar{
+    margin-top: 50px;
+}
+
+.botaolistaremprestimos{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.emprestimo{
+    flex: 1;
+    margin-left: 8px;
+}
+
+.conteudo-emprestimo{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

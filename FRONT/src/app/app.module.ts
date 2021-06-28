@@ -15,6 +15,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import { AppComponent } from './app.component';
 import { CadastrarComponent } from './components/views/usuario/cadastrar/cadastrar.component';
@@ -24,6 +26,8 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { LoginComponent } from './components/views/login/login.component';
 import { CadastrarComponentLivro } from './components/views/livro/cadastrar/cadastrar.component';
 import { ListarComponentLivro } from './components/views/livro/listar/listar.component';
+import { EmprestarComponent } from './components/views/emprestimo/emprestar/emprestar.component';
+import { ListarComponentEmprestimo } from './components/views/emprestimo/listar/listar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { ListarComponentLivro } from './components/views/livro/listar/listar.com
     ContentComponent,
     LoginComponent,
     CadastrarComponentLivro,
-    ListarComponentLivro
+    ListarComponentLivro,
+    EmprestarComponent,
+    ListarComponentEmprestimo
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,9 @@ import { ListarComponentLivro } from './components/views/livro/listar/listar.com
     MatButtonModule,
     MatTableModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

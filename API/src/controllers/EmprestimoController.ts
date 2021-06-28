@@ -21,9 +21,9 @@ class EmprestimoController{
                 for(let i = 0; i < obj.emprestimos.length; i++){
                     print[i] = 
                     {
-                        "Título Livro": livro[i].titulo,
-                        "Data do empréstimo": new Date(emprestimos[i].dataEmprestimo).toLocaleString(),
-                        "Data da devolução": new Date(emprestimos[i].dataDevolucao).toLocaleString()
+                        "titulo": livro[i].titulo,
+                        "dataE": emprestimos[i].dataEmprestimo,
+                        "dataD": emprestimos[i].dataDevolucao
                     }
                 }
                 response.status(200).json(print);
@@ -227,6 +227,7 @@ class EmprestimoController{
                 if(control == true){
 
                     const titulo:[any] = request.body;
+                    console.log(titulo);
                     const tituloString:[String] = [""];
                     for(let i = 0; i < titulo.length; i++){
                         tituloString[i] = titulo[i].titulo;

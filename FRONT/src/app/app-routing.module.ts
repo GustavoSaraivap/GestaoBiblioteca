@@ -5,6 +5,8 @@ import { ListarComponent } from './components/views/usuario/listar/listar.compon
 import { LoginComponent } from './components/views/login/login.component';
 import { CadastrarComponentLivro } from './components/views/livro/cadastrar/cadastrar.component';
 import { ListarComponentLivro } from './components/views/livro/listar/listar.component';
+import { EmprestarComponent } from './components/views/emprestimo/emprestar/emprestar.component';
+import { ListarComponentEmprestimo } from './components/views/emprestimo/listar/listar.component';
 
 
 
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'usuario/listar',
     component: ListarComponent
+  },
+  {
+    path: 'emprestimo/realizarEmprestimo',
+    component: EmprestarComponent
+  },
+  {
+    path: 'emprestimo/listar',
+    component: ListarComponentEmprestimo
   }
 ];
 
