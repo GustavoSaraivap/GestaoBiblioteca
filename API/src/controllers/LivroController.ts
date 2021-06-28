@@ -59,7 +59,6 @@ class LivroController{
             const obj = await auth.autenticacaoFuncionario();
             if(obj != null){
                 const livro = request.body;
-                livro.emprestado = false;
                 const livroid = livro._id
                 const alterarLivro:any = await LivroSchema.findById(livroid);
                 console.log(alterarLivro);

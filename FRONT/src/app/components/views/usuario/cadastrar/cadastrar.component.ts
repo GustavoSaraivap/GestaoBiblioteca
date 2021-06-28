@@ -72,12 +72,3 @@ export class CadastrarComponent implements OnInit {
   }
 
 }
-
-// Criar o clique do botão
-// Testar o preenchimento dos campos do formulário
-// Criar uma classe para armazenar os dados do crédito
-// Criar um objeto com os dados do formulário
-// Armazenar os objetos dentro de um array
-// Colocar as informações do débito dentro do ciclo que será gravado
-//no backend
-// Mostrar as informações dentro da tabela

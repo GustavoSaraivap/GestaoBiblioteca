@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
 
   cpfLogin!: string;
   senhaLogin!: string;
-  metodo!: string;
 
   constructor(private loginService: LoginService, private router: Router, private snack: MatSnackBar, private route: ActivatedRoute) {}
 
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
     const user = new Login();
     user.cpf = this.cpfLogin;
     user.senha = this.senhaLogin;
-    this.loginService.login(user, this.metodo).subscribe(user => {
+    this.loginService.login(user).subscribe(user => {
       this.snack.open("Login efetuado", "", {
         duration: 3000,
         horizontalPosition: "right",
@@ -38,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   deslogar(): void{  
-    this.loginService.logout(this.metodo).subscribe(user => {
+    this.loginService.logout().subscribe(user => {
       this.snack.open("Logout efetuado", "", {
         duration: 3000,
         horizontalPosition: "right",

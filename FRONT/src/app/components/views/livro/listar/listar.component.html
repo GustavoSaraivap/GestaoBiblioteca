@@ -1,0 +1,49 @@
+<!-- <a mat-raised-button color="warn" routerLink="/usuario/cadastrar">
+    <mat-icon>event</mat-icon>
+    Novo Usuário
+  </a> -->
+  
+  <table mat-table [dataSource]="livros" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let livro"> {{livro._id}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef> Título </th>
+        <td mat-cell *matCellDef="let livro"> {{livro.titulo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="editora">
+        <th mat-header-cell *matHeaderCellDef> Editora </th>
+        <td mat-cell *matCellDef="let livro"> {{livro.editora}} </td>
+      </ng-container>
+      
+    <ng-container matColumnDef="autor">
+        <th mat-header-cell *matHeaderCellDef> Autor </th>
+        <td mat-cell *matCellDef="let livro"> {{livro.autor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="emprestado">
+        <th mat-header-cell *matHeaderCellDef> Emprestado </th>
+        <td mat-cell *matCellDef="let livro">
+            <div *ngIf="livro.emprestado; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>Indisponível</ng-template>
+            <ng-template #elseBlock>Disponível</ng-template>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="alterar">
+        <th mat-header-cell *matHeaderCellDef> Merge </th>
+        <td mat-cell *matCellDef="let livro"><button [routerLink]="['/livro/cadastrar/']" [queryParams]="{id:livro._id, titulo:livro.titulo, editora:livro.editora, autor:livro.autor, emprestado:livro.emprestado}" > Alterar</button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="excluir">
+        <th mat-header-cell *matHeaderCellDef> Remove </th>
+        <td mat-cell *matCellDef="let livro"><button (click)="excluir(livro._id)">excluir</button> </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

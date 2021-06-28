@@ -12,11 +12,10 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  login(usuario: Login, login: string): Observable<any> {
-    console.log(usuario);
-    return this.http.post<Login>(`${this.baseURL}${login}/login`, usuario);
+  login(usuario: Login): Observable<any> {
+    return this.http.post<Login>(`${this.baseURL}usuario/login`, usuario);
   }
-  logout(login: string): Observable<any> {
-    return this.http.get<void>(`${this.baseURL}${login}/logout`);
+  logout(): Observable<any> {
+    return this.http.get<void>(`${this.baseURL}usuario/logout`);
   }
 }

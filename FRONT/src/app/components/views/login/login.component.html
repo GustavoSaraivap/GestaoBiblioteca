@@ -7,19 +7,11 @@
         <input matInput placeholder="Digite seu CPF" type="text" name="cpfLogin" [(ngModel)]="cpfLogin" />
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Login</mat-label>
-        <select matNativeControl [(ngModel)]="metodo">
-          <option value="usuario">Usuário</option>
-          <option value="funcionario">Funcionário</option>
-        </select>
-      </mat-form-field>
-
       <mat-form-field class="login">
         <mat-label for="data">Senha</mat-label>
         <input matInput placeholder="Digite sua senha" type="password" name="senhaLogin" [(ngModel)]="senhaLogin" />
       </mat-form-field>
-  
+
       <mat-card-actions>
         <button mat-raised-button color="warn" (click)="logar()">Login</button>
         <button mat-raised-button color="warn" (click)="deslogar()">Logout</button>
