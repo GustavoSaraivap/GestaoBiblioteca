@@ -25,9 +25,9 @@ Content-Type: application/json
 {
     "_id":"609534b9d2d3c5444426808a",
     "nome":"Alice",
-    "cpf":"583.122.400-71",
+    "cpf":"135.410.690-31",
     "sexo":"FEMININO",
-    "senha":"321"
+    "hash":"321"
 }
 
 ###Login funcionario
@@ -35,7 +35,7 @@ POST http://localhost:3000/funcionario/login
 Content-Type: application/json
 
 {
-    "cpf":"583.122.400-71",
+    "cpf":"135.410.690-31",
     "senha":"321"
 }
 

@@ -70,10 +70,10 @@ class FuncionarioController{
         try{
             const funcionario = request.body;
             const funcionarioid = funcionario._id;
-            const senha = funcionario.hash;
+            const hash = funcionario.hash;
             const cpf = funcionario.cpf;
             if(Validacao.validarCPF(cpf) == true){
-                funcionario.hash = await bcrypt.hash(senha, 10);
+                funcionario.hash = await bcrypt.hash(hash, 10);
                 const alterarFuncionario:any = await  FuncionarioSchema.findOne({_id : funcionarioid});
                 const newFuncionario = await FuncionarioSchema.updateOne(alterarFuncionario, funcionario);
                 response.status(200).json(newFuncionario);

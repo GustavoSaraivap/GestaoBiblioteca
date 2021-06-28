@@ -9,6 +9,8 @@ class Auth{
     async login(request: Request, response: Response){
         try {
             const {cpf, senha} = request.body;
+            console.log(cpf);
+            console.log(senha);
             const user: any = await UsuarioSchema.findOne({cpf : cpf});
             if(user != null){
             const validPass = await bcrypt.compare(senha, user.hash);

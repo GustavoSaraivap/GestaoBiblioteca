@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title> Novo Livro </mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="livro">
+        <mat-label for="data">Título</mat-label>
+        <input matInput placeholder="Digite o título" type="text" name="tituloLivro" [(ngModel)]="tituloLivro" />
+      </mat-form-field>
+
+      <mat-form-field class="livro">
+        <mat-label for="data">Editora</mat-label>
+        <input matInput placeholder="Digite a editora" type="text" name="editoraLivro" [(ngModel)]="editoraLivro" />
+      </mat-form-field>
+
+      <mat-form-field class="livro">
+        <mat-label for="data">Autor</mat-label>
+        <input matInput placeholder="Digite o autor" type="text" name="autorLivro" [(ngModel)]="autorLivro" />
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="cadastrar()">Concluir</button>
+      </mat-card-actions>
+    </mat-card-content>
+</mat-card>

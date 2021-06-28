@@ -1,4 +1,6 @@
 import {model, Schema} from "mongoose";
+import { mongoose } from "../config/database";
+import EmprestimoSchema from "./EmprestimoSchema";
 
 const usuarioSchema = new Schema(
 {
@@ -17,8 +19,12 @@ const usuarioSchema = new Schema(
     },
     hash:{
         type:String,
-        required:[true, "O campo Senha do usuário e obrigatório!"]
-    }
+        required:[true, "O campo Senha do usuário e obrigatório!"],
+    },
+    emprestimos:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'emprestimos'   
+    }]
 },{
     timestamps: true
 });

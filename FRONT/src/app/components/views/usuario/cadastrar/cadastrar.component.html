@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title> Novo Usuário </mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="user">
+        <mat-label for="data">Nome</mat-label>
+        <input matInput placeholder="Digite seu nome" type="text" name="nomeUsuario" [(ngModel)]="nomeUsuario" />
+      </mat-form-field>
+
+      <mat-form-field class="user">
+        <mat-label for="data">Cpf</mat-label>
+        <input matInput placeholder="Digite seu CPF" type="text" name="cpfUsuario" [(ngModel)]="cpfUsuario" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Sexo</mat-label>
+        <select matNativeControl [(ngModel)]="sexoUsuario">
+          <option value="MASCULINO">MASCULINO</option>
+          <option value="FEMININO">FEMININO</option>
+          <option value="OUTROS">OUTROS</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="user">
+        <mat-label for="data">Senha</mat-label>
+        <input matInput placeholder="Digite sua senha" type="password" name="hashUsuario" [(ngModel)]="hashUsuario" />
+      </mat-form-field>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="cadastrar()">Concluir</button>
+        <a mat-stroked-button routerLink="usuario/listar"> Listar Usuarios </a>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>

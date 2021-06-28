@@ -1,0 +1,38 @@
+###Fazer empréstimo
+POST http://localhost:3000/emprestimo
+Content-Type: application/json
+
+[
+    {
+        "titulo":"Uma terra prometida"
+    },
+    {
+        "titulo":"A garota do lago"
+    },
+    {
+        "titulo":"Mulheres que correm com os lobos"
+    },
+    {
+        "titulo":"A Realidade de Madhu"
+    }
+]
+###Listar empréstimos do usuário
+GET http://localhost:3000/emprestimo/listar
+
+###Devoluçao
+
+POST http://localhost:3000/devolucao
+Content-Type: application/json
+
+[
+    {
+        "titulo":"Mulheres que correm com os lobos",
+        "valorMulta": 60
+    },
+    {
+        "titulo":"A Realidade de Madhu"
+    },
+    {
+        "titulo":"Uma terra prometida"
+    }
+]
