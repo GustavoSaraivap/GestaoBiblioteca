@@ -1,10 +1,6 @@
 import {model, Schema} from "mongoose";
 
-<<<<<<< HEAD
 const livrosSchema = new Schema(
-=======
-const LivroSchema = new Schema(
->>>>>>> e35952971054caa0299a8a826e6d833140c7c285
 {
     codigo:{
         type:Number,
@@ -26,8 +22,4 @@ const LivroSchema = new Schema(
     timestamps: true
 });
 
-<<<<<<< HEAD
 export default model("livros", livrosSchema);
-=======
-export default model("livros", LivroSchema);
->>>>>>> e35952971054caa0299a8a826e6d833140c7c285

@@ -3,10 +3,10 @@ POST http://localhost:3000/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome":"Felipe",
-    "cpf":"224.414.180-25",
-    "sexo":"FEMININO",
-    "senha":"123123"
+    "nome":"Lucas",
+    "cpf":"095.636.639-26",
+    "sexo":"MASCULINO",
+    "senha":"543210"
 }
 
 ###Listar usuario
@@ -23,7 +23,7 @@ POST http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
 {
-    "_id":"608c2987fb4da726b4dc43ef",
+    "_id":"6095333c1877e646e8d29442",
     "nome":"Alice",
     "cpf":"516.868.520-02",
     "sexo":"FEMININO",
