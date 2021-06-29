@@ -25,18 +25,4 @@ export class ListarComponentEmprestimo implements OnInit {
     });
   }
 
-  excluir(id : string): void {
-    let livro = new Livro();
-    this.livro.excluir(id).subscribe(livro => {
-      this.snack.open("Livro excluído!", "", {
-        duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-      });
-      this.router.navigate([""])
-      .then(nav => {
-      window.location.reload();
-});
-    });
-  }
 }

@@ -7,6 +7,7 @@ import { CadastrarComponentLivro } from './components/views/livro/cadastrar/cada
 import { ListarComponentLivro } from './components/views/livro/listar/listar.component';
 import { EmprestarComponent } from './components/views/emprestimo/emprestar/emprestar.component';
 import { ListarComponentEmprestimo } from './components/views/emprestimo/listar/listar.component';
+import { DevolverComponent } from './components/views/emprestimo/devolver/devolver.component';
 
 
 
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'emprestimo/listar',
     component: ListarComponentEmprestimo
+  },
+  {
+    path: 'devolucao',
+    component: DevolverComponent
   }
 ];
 

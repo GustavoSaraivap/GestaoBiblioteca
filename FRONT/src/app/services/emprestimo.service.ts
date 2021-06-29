@@ -22,4 +22,9 @@ export class EmprestimoService {
     return this.http.post<any>(`${this.baseURL}emprestimo`, emprestimos);
   }
 
+  devolver(emprestimos : EmprestimoAux[]): Observable<any> {
+    console.log(emprestimos);
+    return this.http.post<any>(`${this.baseURL}devolucao`, emprestimos);
+  }
+
 }

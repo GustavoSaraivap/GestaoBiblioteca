@@ -2,39 +2,34 @@
     <mat-icon>event</mat-icon>
     Novo Usuário
   </a> -->
-  <table mat-table [dataSource]="livros" class="mat-elevation-z8">
+  
+  <table mat-table [dataSource]="emprestimos" class="mat-elevation-z8">
+    
+    
     <ng-container matColumnDef="titulo">
         <th mat-header-cell *matHeaderCellDef> Título </th>
-        <td mat-cell *matCellDef="let livro" >{{livro.titulo}}</td>
+        <td mat-cell *matCellDef="let emprestimo"> {{emprestimo.titulo}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="editora">
-        <th mat-header-cell *matHeaderCellDef> Editora </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.editora}} </td>
+      <ng-container matColumnDef="dataE">
+        <th mat-header-cell *matHeaderCellDef>Data do empréstimo </th>
+        <td mat-cell *matCellDef="let emprestimo"> {{ emprestimo.dataE | date: "dd/MM/yyyy HH:mm:ss" }} </td>
       </ng-container>
-      
-    <ng-container matColumnDef="autor">
-        <th mat-header-cell *matHeaderCellDef> Autor </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.autor}} </td>
-    </ng-container>
 
-    <ng-container matColumnDef="emprestado">
-        <th mat-header-cell *matHeaderCellDef> Emprestado </th>
-        <td mat-cell *matCellDef="let livro">
-            <div *ngIf="livro.emprestado; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>Indisponível</ng-template>
-            <ng-template #elseBlock>Disponível</ng-template>
-        </td>
-    </ng-container>
+      <ng-container matColumnDef="dataD">
+        <th mat-header-cell *matHeaderCellDef> Data da devolução </th>
+        <td mat-cell *matCellDef="let emprestimo"> {{ emprestimo.dataD | date: "dd/MM/yyyy HH:mm:ss" }} </td>
+      </ng-container>
+  
+  
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
   </table>
 
-  <div class="emprestimo">
+  <div class="devolucao">
     <mat-card>
       <mat-card-content>
-        <div class="conteudo-emprestimo">
+        <div class="conteudo-devolucao">
           <mat-form-field>
             <mat-label for="data">Título do livro</mat-label>
             <input matInput placeholder="Titulo" type="text" name="tituloLivro" [(ngModel)]="tituloLivro" />
@@ -52,10 +47,12 @@
           </ng-container>
         </table>
       </mat-card-content>
-      <button mat-raised-button color="primary" (click)="emprestar()">Emprestar</button>
-
-      <a mat-stroked-button routerLink="/emprestimo/listar" class="botaolistaremprestimos"> Listar Empréstimos</a>
+      <mat-form-field>
+        <mat-label for="data">Multa</mat-label>
+        <input matInput placeholder="Multa" type="number" name="multaLivro" [(ngModel)]="multaLivro" />
+      </mat-form-field>
+      <mat-label for="data">A multa é de 20$ por livro atrasado!</mat-label>
+      <br/>
+      <button mat-raised-button color="primary" (click)="devolver()">Devolver</button>
     </mat-card>
   </div>
-
- 
