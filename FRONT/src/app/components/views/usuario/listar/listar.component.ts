@@ -12,7 +12,7 @@ import { UsuarioService } from "src/app/services/usuario.service";
 })
 export class ListarComponent implements OnInit {
   usuarios!: MatTableDataSource<Usuario>;
-  displayedColumns: string[] = ['id', 'nome','cpf' ,'criadoEm', 'alterar', 'excluir'];
+  displayedColumns: string[] = ['nome','cpf' ,'criadoEm', 'alterar', 'excluir'];
 
   constructor(private service: UsuarioService, private usuario: UsuarioService, 
     private router: Router, private snack: MatSnackBar) {}

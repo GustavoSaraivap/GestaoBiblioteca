@@ -18,7 +18,8 @@ mat-icon{
 
 .emprestimo{
     flex: 1;
-    margin-left: 8px;
+    margin-left: 0px;
+    margin-top: 10px;
 }
 
 .conteudo-emprestimo{
@@ -26,3 +27,15 @@ mat-icon{
     justify-content: space-between;
     flex-direction: row;
 }
+
+
+
+.material-icons.color_green { color: #32a704; }
+
+.material-icons.color_yellow { color: #d4d117; }
+
+.material-icons.color_red { color: #ca0c0c; }
+
+.material-icons.color_blue { color: #0d3ec5; }
+
+.material-icons.color_black { color: #000000; }

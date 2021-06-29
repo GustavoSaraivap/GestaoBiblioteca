@@ -6,3 +6,13 @@ table {
 mat-icon{
     margin-right: 8px;
 }
+
+.material-icons.color_green { color: #32a704; }
+
+.material-icons.color_yellow { color: #d4d117; }
+
+.material-icons.color_red { color: #ca0c0c; }
+
+.material-icons.color_blue { color: #0d3ec5; }
+
+.material-icons.color_black { color: #000000; }

@@ -1,3 +1,4 @@
+import { HttpResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatTableDataSource } from "@angular/material/table";
@@ -39,8 +40,9 @@ export class DevolverComponent implements OnInit {
         horizontalPosition: "right",
         verticalPosition: "top",
       });
-      this.router.navigate(["/emprestimo/listar"]);
+      this.router.navigate([""]);
     });   
+    
   }
 
   adicionarLivro(): void {

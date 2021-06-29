@@ -57,7 +57,7 @@ export class CadastrarComponent implements OnInit {
           horizontalPosition: "right",
           verticalPosition: "top",
         });
-        this.router.navigate([""]);
+        this.router.navigate(["/usuario/listar"]);
       });
     }else{
       this.usuario.cadastrar(usuario).subscribe(usuario => {
@@ -66,7 +66,7 @@ export class CadastrarComponent implements OnInit {
           horizontalPosition: "right",
           verticalPosition: "top",
         });
-        this.router.navigate([""]);
+        this.router.navigate(["/usuario/listar"]);
       });
     }   
   }

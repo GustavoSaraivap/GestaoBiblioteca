@@ -10,11 +10,17 @@ mat-icon{
 
 .devolucao{
     flex: 1;
-    margin-left: 8px;
+    margin-left: 0px;
+    margin-top: 10px;
 }
 
 .conteudo-devolucao{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+}
+.mensagemmulta{
+    margin-left: 100px;
+    font-size: 15px;
+    color: red;
 }
