@@ -3,27 +3,27 @@ POST http://localhost:3000/usuario/cadastrar
 Content-Type: application/json
 
 {
-    "nome":"Lucas",
-    "cpf":"095.636.639-26",
-    "sexo":"MASCULINO",
-    "senha":"543210"
+    "nome":"Marcia",
+    "cpf":"095.632.635-25",
+    "sexo":"FEMININO",
+    "senha":"35460"
 }
 
 ###Listar usuario
 GET http://localhost:3000/usuario/listar
 
 ###Buscar usuario por id
-GET http://localhost:3000/usuario/buscar/60950be810e9e61eb0c70ca6
+GET http://localhost:3000/usuario/buscar/60dc778d3890a304141df22b
 
 ###Remover usuario
-GET http://localhost:3000/usuario/remover/60950be810e9e61eb0c70ca6
+DELETE http://localhost:3000/usuario/remover/60dc778d3890a304141df22b
 
 ###Alterar usuario
-POST http://localhost:3000/usuario/alterar
+PUT http://localhost:3000/usuario/alterar
 Content-Type: application/json
 
 {
-    "_id":"6095333c1877e646e8d29442",
+    "_id":"60dc778d3890a304141df22b",
     "nome":"Alice",
     "cpf":"516.868.520-02",
     "sexo":"FEMININO",

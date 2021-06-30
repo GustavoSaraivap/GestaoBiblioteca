@@ -68,9 +68,9 @@ class UsuarioController{
             const senha = user.senha;
             if(Validacao.validarCPF(cpf) == true){
                 user.hash = await bcrypt.hash(senha, 10);
-                const alterarUser:any = await  UsuarioSchema.findOne({_id : userid});
-                const newUser = await UsuarioSchema.updateOne(alterarUser, user);
-                response.status(200).json(newUser);
+                response.status(200).json(
+                    await UsuarioSchema.updateOne(userid, user)
+                );
             }else{
                 response.status(400).json({ msg:"O campo CPF é inválido!"});
             }

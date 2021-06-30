@@ -14,8 +14,8 @@ const emprestimoController = new EmprestimoController();
 router.get("/usuario/listar", usuarioController.listar);
 router.get("/usuario/buscar/:id", usuarioController.buscarPorId);
 router.post("/usuario/cadastrar", usuarioController.cadastrar);
-router.get("/usuario/remover/:id", usuarioController.remover);
-router.post("/usuario/alterar", usuarioController.alterar);
+router.delete("/usuario/remover/:id", usuarioController.remover);
+router.put("/usuario/alterar", usuarioController.alterar);
 router.post("/usuario/login", usuarioController.loginUsuario);
 router.get("/usuario/logout", usuarioController.logoutUsuario);
 
