@@ -12,7 +12,7 @@ import { LivroService } from "src/app/services/livro.service";
 })
 export class ListarComponentLivro implements OnInit {
   livros!: MatTableDataSource<Livro>;
-  displayedColumns: string[] = ['id', 'titulo','editora' ,'autor', 'emprestado', 'alterar', 'excluir'];
+  displayedColumns: string[] = ['titulo','editora' ,'autor', 'emprestado', 'alterar', 'excluir'];
 
   constructor(private service: LivroService, private livro: LivroService, 
     private router: Router, private snack: MatSnackBar) {}

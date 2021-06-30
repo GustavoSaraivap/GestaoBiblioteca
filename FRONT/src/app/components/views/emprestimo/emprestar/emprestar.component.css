@@ -7,6 +7,29 @@ mat-icon{
     margin-right: 8px;
 }
 
+.botaoemprestar{
+    margin-top: 50px;
+}
+
+.botaolistaremprestimos{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.emprestimo{
+    flex: 1;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.conteudo-emprestimo{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+
 .material-icons.color_green { color: #32a704; }
 
 .material-icons.color_yellow { color: #d4d117; }
