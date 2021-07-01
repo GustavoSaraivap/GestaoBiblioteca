@@ -29,6 +29,8 @@ import { ListarComponentLivro } from './components/views/livro/listar/listar.com
 import { EmprestarComponent } from './components/views/emprestimo/emprestar/emprestar.component';
 import { ListarComponentEmprestimo } from './components/views/emprestimo/listar/listar.component';
 import { DevolverComponent } from './components/views/emprestimo/devolver/devolver.component';
+import { CadastrarFuncionarioComponent } from './components/views/funcionario/cadastrar-funcionario/cadastrar-funcionario.component';
+import { ListarFuncionarioComponent } from './components/views/funcionario/listar-funcionario/listar-funcionario.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { DevolverComponent } from './components/views/emprestimo/devolver/devolv
     ListarComponentLivro,
     EmprestarComponent,
     ListarComponentEmprestimo,
-    DevolverComponent
+    DevolverComponent,
+    CadastrarFuncionarioComponent,
+    ListarFuncionarioComponent
   ],
   imports: [
     BrowserModule,

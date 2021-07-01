@@ -23,8 +23,8 @@ router.get("/usuario/logout", usuarioController.logoutUsuario);
 router.get("/funcionario/listar", funcionarioController.listar);
 router.get("/funcionario/buscar/:id", funcionarioController.buscarPorId);
 router.post("/funcionario/cadastrar", funcionarioController.cadastrar);
-router.get("/funcionario/remover/:id", funcionarioController.remover);
-router.post("/funcionario/alterar", funcionarioController.alterar);
+router.delete("/funcionario/remover/:id", funcionarioController.remover);
+router.put("/funcionario/alterar", funcionarioController.alterar);
 router.post("/funcionario/login", funcionarioController.loginFuncionario);
 router.get("/funcionario/logout", funcionarioController.logoutFuncionario);
 

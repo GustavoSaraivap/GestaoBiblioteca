@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title> Novo Funcionário </mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="user">
+        <mat-label for="data">Nome</mat-label>
+        <input matInput placeholder="Digite seu nome" type="text" name="nomeFuncionario" [(ngModel)]="nomeFuncionario" />
+      </mat-form-field>
+
+      <mat-form-field class="user">
+        <mat-label for="data">Cpf</mat-label>
+        <input matInput placeholder="Digite seu CPF" type="text" name="cpfFuncionario" [(ngModel)]="cpfFuncionario" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Sexo</mat-label>
+        <select matNativeControl [(ngModel)]="sexoFuncionario">
+          <option value="MASCULINO">MASCULINO</option>
+          <option value="FEMININO">FEMININO</option>
+          <option value="OUTROS">OUTROS</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="user">
+        <mat-label for="data">Senha</mat-label>
+        <input matInput placeholder="Digite sua senha" type="password" name="hashFuncionario" [(ngModel)]="hashFuncionario" />
+      </mat-form-field>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="cadastrar()">Concluir</button>
+        <a mat-raised-button routerLink="/Funcionario/listar"> Listar Funcionários </a>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>

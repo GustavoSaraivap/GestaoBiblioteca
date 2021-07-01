@@ -11,21 +11,21 @@ import { UsuarioService } from "src/app/services/usuario.service";
   styleUrls: ["./listar.component.css"],
 })
 export class ListarComponent implements OnInit {
-  usuarios!: MatTableDataSource<Usuario>;
+  Usuarios!: MatTableDataSource<Usuario>;
   displayedColumns: string[] = ['nome','cpf' ,'criadoEm', 'alterar', 'excluir'];
 
-  constructor(private service: UsuarioService, private usuario: UsuarioService, 
+  constructor(private service: UsuarioService, private Usuario: UsuarioService, 
     private router: Router, private snack: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.service.listar().subscribe((usuarios) => {
-      this.usuarios = new MatTableDataSource<Usuario>(usuarios);
+    this.service.listar().subscribe((Usuarios) => {
+      this.Usuarios = new MatTableDataSource<Usuario>(Usuarios);
     });
   }
 
   excluir(id : string): void {
     let usuario = new Usuario();
-    this.usuario.excluir(id).subscribe(usuario => {
+    this.Usuario.excluir(id).subscribe(Usuario => {
       this.snack.open("Usuário excluído!", "", {
         duration: 3000,
         horizontalPosition: "right",

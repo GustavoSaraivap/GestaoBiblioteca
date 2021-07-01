@@ -1,37 +1,37 @@
-<!-- <a mat-raised-button color="warn" routerLink="/usuario/cadastrar">
+<!-- <a mat-raised-button color="warn" routerLink="/Funcionario/cadastrar">
     <mat-icon>event</mat-icon>
     Novo Usuário
   </a> -->
   
-  <table mat-table [dataSource]="Usuarios" class="mat-elevation-z8">
+  <table mat-table [dataSource]="Funcionarios" class="mat-elevation-z8">
     
     <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
+        <td mat-cell *matCellDef="let Funcionario"> {{Funcionario.nome}} </td>
       </ng-container>
       
     <ng-container matColumnDef="cpf">
         <th mat-header-cell *matHeaderCellDef> Cpf </th>
-        <td mat-cell *matCellDef="let usuario"> {{usuario.cpf}} </td>
+        <td mat-cell *matCellDef="let Funcionario"> {{Funcionario.cpf}} </td>
       </ng-container>
       
     <ng-container matColumnDef="criadoEm">
       <th mat-header-cell *matHeaderCellDef> Criado em </th>
-      <td mat-cell *matCellDef="let usuario"> {{ usuario.createdAt | date: "dd/MM/yyyy HH:mm:ss" }} </td>
+      <td mat-cell *matCellDef="let Funcionario"> {{ Funcionario.createdAt | date: "dd/MM/yyyy HH:mm:ss" }} </td>
     </ng-container>
 
     <ng-container matColumnDef="alterar">
         <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let usuario">
-          <button  mat-icon-button [routerLink]="['/usuario/cadastrar/']"
-           [queryParams]="{id:usuario._id, nome:usuario.nome, cpf:usuario.cpf, sexo:usuario.sexo}" > 
+        <td mat-cell *matCellDef="let Funcionario">
+          <button  mat-icon-button [routerLink]="['/Funcionario/cadastrar/']"
+           [queryParams]="{id:Funcionario._id, nome:Funcionario.nome, cpf:Funcionario.cpf, sexo:Funcionario.sexo}" > 
            <mat-icon class="material-icons color_black">edit</mat-icon>
            </button></td>
       </ng-container>
 
       <ng-container matColumnDef="excluir">
         <th mat-header-cell *matHeaderCellDef>  </th>
-        <td mat-cell *matCellDef="let usuario"><button  mat-icon-button color="warn"(click)="excluir(usuario._id)">
+        <td mat-cell *matCellDef="let Funcionario"><button  mat-icon-button color="warn"(click)="excluir(Funcionario._id)">
           <mat-icon color="warn">
             delete
             </mat-icon>
